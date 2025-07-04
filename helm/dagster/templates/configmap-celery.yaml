@@ -1,4 +1,3 @@
-{{- if eq .Values.runLauncher.type "CeleryK8sRunLauncher" }}
 ---
 {{- $celeryK8sRunLauncherConfig := .Values.runLauncher.config.celeryK8sRunLauncher }}
 {{ range $queue := $celeryK8sRunLauncherConfig.workerQueues }}
@@ -23,5 +22,4 @@ data:
           env: DAGSTER_CELERY_BACKEND_URL
         config_source: {{ merge $individualConfig $sharedConfig | toYaml | nindent 10 }}
 ---
-{{- end }}
 {{- end }}
