@@ -3,6 +3,47 @@ entries:
   dagster:
   - apiVersion: v2
     appVersion: dev
+    created: "2025-07-04T20:57:32.440969581Z"
+    dependencies:
+    - condition: dagster-user-deployments.enableSubchart
+      name: dagster-user-deployments
+      repository: ""
+      version: 0.0.1-dev
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.7.15
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.0.10
+    - condition: redis.internal
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 21.2.6
+    description: The data orchestration platform built for productivity.
+    digest: 58edf7c1f1e3522dd5107860e59c678e51842943e0920a0ae1d9f3d2f21d4bb8
+    icon: https://dagster.io/images/brand/logos/dagster-primary-mark.png
+    keywords:
+    - analytics
+    - data-orchestrator
+    - data-pipelines
+    - etl
+    - workflow
+    kubeVersion: '>= 1.18.0-0'
+    maintainers:
+    - email: support@dagsterlabs.com
+      name: Dagster Labs
+      url: https://dagster.io/about
+    name: dagster
+    sources:
+    - https://github.com/dagster-io/dagster/tree/master/helm/dagster
+    type: application
+    urls:
+    - dagster-0.0.5-dev.tgz
+    version: 0.0.5-dev
+  - apiVersion: v2
+    appVersion: dev
     created: "2025-07-04T19:41:22.966562271Z"
     dependencies:
     - condition: dagster-user-deployments.enableSubchart
@@ -165,4 +206,4 @@ entries:
     urls:
     - dagster-0.0.1-dev.tgz
     version: 0.0.1-dev
-generated: "2025-07-04T19:41:22.966579574Z"
+generated: "2025-07-04T20:57:32.440989538Z"
