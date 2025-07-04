@@ -18,15 +18,15 @@ dependencies:
     version: 0.0.1-dev
     condition: dagster-user-deployments.enableSubchart
   - name: postgresql
-    version: 8.1.0
+    version: 16.7.15
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
   - name: rabbitmq
-    version: 6.16.3
+    version: 16.0.10
     repository: https://charts.bitnami.com/bitnami
     condition: rabbitmq.enabled
   - name: redis
-    version: 12.7.4
+    version: 21.2.6
     repository: https://charts.bitnami.com/bitnami
     condition: redis.internal
 maintainers:
