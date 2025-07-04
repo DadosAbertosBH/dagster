@@ -63,7 +63,7 @@ spec:
           imagePullPolicy: {{ $celeryK8sRunLauncherConfig.image.pullPolicy }}
           image: {{ include "dagster.dagsterImage.name" (list $ $celeryK8sRunLauncherConfig.image) | quote }}
           command: ["dagster-celery"]
-          args: ["worker", "start", "-A", "dagster_celery_k8s.app", "-y", "{{ $.Values.global.dagsterHome }}/celery-config.yaml", "-q", "{{- $queue.name -}}", {{- if $queue.additionalCeleryArgs -}}"--", "{{- join "\",\"" $queue.additionalCeleryArgs -}}" {{- end -}}]
+          args: ["worker", "start", "-A", "dagster_celery.app", "-y", "{{ $.Values.global.dagsterHome }}/celery-config.yaml", "-q", "{{- $queue.name -}}", {{- if $queue.additionalCeleryArgs -}}"--", "{{- join "\",\"" $queue.additionalCeleryArgs -}}" {{- end -}}]
           env:
             - name: DAGSTER_PG_PASSWORD
               valueFrom:
@@ -100,7 +100,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - dagster-celery status -A dagster_celery_k8s.app -y {{ $.Values.global.dagsterHome }}/celery-config.yaml | grep "${HOSTNAME}:.*OK"
+                - dagster-celery status -A dagster_celery.app -y {{ $.Values.global.dagsterHome }}/celery-config.yaml | grep "${HOSTNAME}:.*OK"
             {{- if hasKey $celeryK8sRunLauncherConfig.livenessProbe "initialDelaySeconds" }}
             initialDelaySeconds:
               {{- toYaml $celeryK8sRunLauncherConfig.livenessProbe.initialDelaySeconds | nindent 14 }}
